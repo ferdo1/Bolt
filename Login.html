@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bolt Login</title>
+  <link rel="stylesheet" href="index.css"> 
+</head>
+<body>
+  <section class="login-section">
+    <div class="login-content">
+      <h1 id="login-title">Login</h1>
+      <div class="login-form">
+        <h2>LOG IN</h2>
+        <form>
+          <div class="form-group">
+            <label for="email">Email or username</label>
+            <input type="text" id="email" name="email" placeholder="Email or username">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone number</label>
+            <input type="text" id="phone" name="phone" placeholder="Phone number">
+          </div>
+          <button type="submit" class="cta-button">Continue →</button>
+          <button type="button" class="cta-button email-link">Email me a login link →</button>
+          <a href="#" class="forgot-password">Forgot Password</a>
+        </form>
+        <p>Not registered? <a href="#driver-register" class="signup-link">Signup here</a></p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Read query parameter to customize login page
+    const urlParams = new URLSearchParams(window.location.search);
+    const type = urlParams.get('type');
+    const loginTitle = document.getElementById('login-title');
+
+    if (type) {
+      switch (type.toLowerCase()) {
+        case 'driver':
+          loginTitle.textContent = 'Driver Login';
+          break;
+        case 'courier':
+          loginTitle.textContent = 'Courier Login';
+          break;
+        case 'merchant':
+          loginTitle.textContent = 'Merchant Login';
+          break;
+        case 'fleet':
+          loginTitle.textContent = 'Fleet Login';
+          break;
+        default:
+          loginTitle.textContent = 'Login';
+      }
+    }
+  </script>
+</body>
+</html>
